@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Couple Goals</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:#fff;
+color:#333;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+border-bottom:1px solid #eee;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+height:45px;
+}
+
+.logo h2{
+font-family:'Playfair Display', serif;
+color:#8B1E3F;
+margin:0;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(to bottom,#fff0f5,#ffffff);
+}
+
+.hero img{
+width:220px;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-family:'Playfair Display', serif;
+font-size:42px;
+color:#8B1E3F;
+max-width:850px;
+margin:auto;
+line-height:1.6;
+letter-spacing:0.5px;
+}
+
+.hero p{
+max-width:650px;
+margin:25px auto;
+color:#666;
+font-size:17px;
+line-height:1.8;
+}
+
+/* SECTION */
+section{
+padding:80px 50px;
+text-align:center;
+}
+
+h2{
+font-family:'Playfair Display', serif;
+color:#8B1E3F;
+}
+
+/* BUTTON */
+.service-btns{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.service-btns button{
+padding:10px 20px;
+border-radius:25px;
+border:none;
+background:#8B1E3F;
+color:white;
+cursor:pointer;
+}
+
+/* CARD */
+.grid{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:30px;
+opacity:0;
+transition:0.5s;
+}
+
+.grid.show{opacity:1;}
+
+.card{
+width:240px;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.overlay{
+padding:12px;
+background:white;
+font-weight:500;
+}
+
+/* QUIZ */
+.quiz{
+max-width:420px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+.main-btn{
+background:#8B1E3F;
+color:white;
+padding:12px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+width:100%;
+}
+
+footer{
+background:#8B1E3F;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
+</head>
+
+<body onload="show('date')">
+
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+<img src="logo.jpeg">
+<h2>Couple Goals</h2>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<img src="logo.jpeg">
+
+<h1>
+Every love story deserves a moment that feels unforgettable,<br>
+not just planned — but deeply felt, beautifully experienced,<br>
+and remembered long after the day has passed.
+</h1>
+
+<p>
+We design intimate and meaningful experiences tailored to your partner,<br>
+so you no longer have to guess, stress, or overthink —<br>
+just create a moment that truly speaks from the heart.
+</p>
+
+</section>
+
+<!-- SERVICES -->
+<section>
+<h2>Our Experiences</h2>
+
+<div class="service-btns">
+<button onclick="show('date')">Date</button>
+<button onclick="show('gift')">Gift</button>
+<button onclick="show('surprise')">Surprise</button>
+</div>
+
+<div class="grid" id="content"></div>
+</section>
+
+<!-- QUIZ -->
+<section>
+<h2>Find Your Perfect Plan</h2>
+
+<div class="quiz">
+
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="partner" placeholder="Partner Name">
+
+<select id="domisili">
+<option>Pontianak</option>
+<option>Singkawang</option>
+</select>
+
+<select id="occasion">
+<option>Valentine</option>
+<option>Anniversary</option>
+<option>Birthday</option>
+<option>Casual Date</option>
+</select>
+
+<select id="hobby">
+<option>Food Lover</option>
+<option>Adventure</option>
+<option>Gaming</option>
+<option>Relax</option>
+</select>
+
+<select id="budget">
+<option><100k</option>
+<option>100k - 300k</option>
+<option>>300k</option>
+</select>
+
+<button class="main-btn" onclick="generate()">Get Recommendation</button>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Couple Goals</p>
+</footer>
+
+<script>
+function show(type){
+let content=document.getElementById("content");
+
+if(type=="date"){
+content.innerHTML=`
+<div class="card"><img src="picnicdate.jpeg"><div class="overlay">Picnic Date</div></div>
+<div class="card"><img src="romanticdinner.jpeg"><div class="overlay">Romantic Dinner</div></div>
+<div class="card"><img src="beachdate.jpeg"><div class="overlay">Beach Date</div></div>
+`;
+}
+
+if(type=="gift"){
+content.innerHTML=`
+<div class="card"><img src="scrapbookorsc.jpeg"><div class="overlay">Scrapbook</div></div>
+<div class="card"><img src="watch.jpg"><div class="overlay">Watch</div></div>
+<div class="card"><img src="jewelry.jpg"><div class="overlay">Jewelry</div></div>
+`;
+}
+
+if(type=="surprise"){
+content.innerHTML=`
+<div class="card"><img src="scavengerhunt.jpg"><div class="overlay">Scavenger Hunt</div></div>
+<div class="card"><img src="stargazing.jpeg"><div class="overlay">Stargazing</div></div>
+<div class="card"><img src="recreatefirstdate.jpg"><div class="overlay">Recreate First Date</div></div>
+`;
+}
+
+content.classList.add("show");
+}
+
+function generate(){
+
+let name=document.getElementById("name").value;
+let partner=document.getElementById("partner").value;
+let domisili=document.getElementById("domisili").value;
+let occasion=document.getElementById("occasion").value;
+let hobby=document.getElementById("hobby").value;
+let budget=document.getElementById("budget").value;
+
+if(name==""||partner==""){
+alert("Isi nama dulu ya!");
+return;
+}
+
+let idea="";
+
+if(budget=="<100k"){
+idea="Coffee Date, Movie Date";
+}
+else if(budget=="100k - 300k"){
+idea="Picnic Date, Romantic Dinner";
+}
+else{
+idea="Staycation, Fine Dining";
+}
+
+let message =
+"Halo Couple Goals\n\n" +
+"Saya " + name + " ingin konsultasi.\n" +
+"Pasangan saya: " + partner + "\n\n" +
+"Domisili: " + domisili + "\n" +
+"Occasion: " + occasion + "\n" +
+"Hobby: " + hobby + "\n" +
+"Budget: " + budget + "\n\n" +
+"Ide:\n" + idea + "\n\n" +
+"Mohon dibantu rekomendasi terbaik.\nTerima kasih";
+
+let link="https://api.whatsapp.com/send?phone=6289524070718&text="+encodeURIComponent(message);
+
+window.open(link,"_blank");
+}
+</script>
+
+</body>
+</html>
