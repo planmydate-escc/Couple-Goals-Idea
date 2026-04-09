@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Couple Goals</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -16,97 +16,100 @@ color:#333;
 scroll-behavior:smooth;
 }
 
-/* NAVBAR */
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 50px;
-border-bottom:1px solid #eee;
+position:sticky;
+top:0;
+background:white;
+z-index:999;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
+gap:10px;
 }
 
-.logo img{
-height:45px;
-}
+.logo img{height:40px;}
+.logo h2{color:#8B1E3F;margin:0;font-family:'Playfair Display';}
 
-.logo h2{
-font-family:'Playfair Display', serif;
-color:#8B1E3F;
-margin:0;
-}
-
-/* HERO */
 .hero{
 text-align:center;
-padding:120px 20px;
+padding:120px 20px 80px;
 background:linear-gradient(to bottom,#fff0f3,#ffffff);
 }
 
 .hero img{
-width:220px;
-margin-bottom:25px;
+width:180px;
+margin-bottom:20px;
+animation:floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%{transform:translateY(0px) scale(1);} 
+50%{transform:translateY(-12px) scale(1.03);} 
+100%{transform:translateY(0px) scale(1);} 
 }
 
 .hero h1{
-font-family:'Playfair Display', serif;
-font-size:40px;
+font-size:42px;
 color:#8B1E3F;
-max-width:850px;
+max-width:800px;
 margin:auto;
-line-height:1.6;
+line-height:1.5;
 }
 
 .hero p{
-max-width:650px;
-margin:25px auto;
+max-width:600px;
+margin:20px auto;
 color:#666;
-font-size:17px;
-line-height:1.8;
-}
-
-/* WHY */
-.why{
-max-width:700px;
-margin:auto;
 text-align:center;
-padding:40px 20px;
 }
 
 .sub-text{
+max-width:700px;
+margin:0 auto 30px;
+text-align:center;
+color:#666;
+line-height:1.8;
 font-size:15px;
-color:#777;
-line-height:1.7;
-margin-bottom:10px;
 }
+
+.cta-btn{
+background:linear-gradient(135deg,#8B1E3F,#c44569);
+color:white;
+padding:14px 28px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-weight:500;
+margin-top:20px;
+transition:0.3s;
+}
+
+.cta-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+section{padding:40px 20px;text-align:center;}
 
 .why ul{
 list-style:none;
-margin-bottom:10px;
 padding:0;
-text-align:left;
-display:inline-block;
+margin-bottom:5px;
 }
 
-.why li{
-margin-bottom:10px;
-}
-
-/* SERVICES */
-section{
-padding:70px 50px;
-text-align:center;
-}
+.why li{margin:10px 0;}
 
 .service-btns{
 display:flex;
 justify-content:center;
-gap:15px;
+gap:10px;
 flex-wrap:wrap;
 }
 
@@ -126,34 +129,36 @@ gap:20px;
 flex-wrap:wrap;
 margin-top:30px;
 opacity:0;
-transition:0.5s;
+transform:translateY(20px);
+transition:0.6s;
 }
 
-.grid.show{opacity:1;}
+.grid.show{opacity:1;transform:translateY(0);}
 
-.card{width:230px;border-radius:15px;overflow:hidden;position:relative;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:0.3s;}
-
-.card:hover{
-transform:translateY(-8px);
+.card{
+width:230px;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
+.card:hover{transform:translateY(-8px);}
+
+.card img{width:100%;height:180px;object-fit:cover;}
+
+.overlay{
+padding:10px;
+background:#8B1E3F;
+color:white;
 }
 
-.overlay{position:absolute;bottom:0;width:100%;padding:10px;background:rgba(0,0,0,0.4);color:white;}
-
-
-/* QUIZ */
 .quiz{
 max-width:400px;
 margin:auto;
-background:white;
 padding:25px;
 border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 input,select{
@@ -165,40 +170,38 @@ border:1px solid #ddd;
 }
 
 .main-btn{
-background:#8B1E3F;
+background:linear-gradient(135deg,#8B1E3F,#c44569);
 color:white;
-padding:12px;
+padding:14px;
 border:none;
-border-radius:25px;
+border-radius:30px;
 cursor:pointer;
 width:100%;
 }
 
-/* FOOTER */
-footer{
-background:#8B1E3F;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-/* ANIMASI */
 .reveal{
 opacity:0;
-transform:translateY(30px);
-transition:all 0.8s ease;
+transform:translateY(50px);
+transition:1s cubic-bezier(0.22,1,0.36,1);
 }
 
 .reveal.active{
 opacity:1;
 transform:translateY(0);
 }
+
+footer{
+background:#8B1E3F;
+color:white;
+padding:20px;
+text-align:center;
+}
+
 </style>
 </head>
 
 <body onload="show('date')">
 
-<!-- NAVBAR -->
 <nav>
 <div class="logo">
 <img src="logo.png">
@@ -206,51 +209,41 @@ transform:translateY(0);
 </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero reveal">
-<img src="logo.png">
+<img src="logo.png" alt="logo">
+<h1>Never Run Out of Ideas for Your Special Moments</h1>
+</section>
 
-<h1>
-Never Run Out of Ideas for Your Special Moments
-</h1>
-
-<!-- WHY -->
 <section class="why reveal">
-<h2>Why Choose Couple Goals?</h2>
-
+<h2>Why Choose Us?</h2>
 <ul>
 <li>✔ Personalized ideas</li>
 <li>✔ Save time</li>
 <li>✔ Budget friendly</li>
-<li>✔ Perfect for special moments</li>
+<li>✔ Perfect for every moment</li>
 </ul>
-</section>  
-  
+</section>
+
 <p class="sub-text">
 We design intimate and meaningful experiences tailored to your partner,<br>
-so you no longer have to guess, stress, or overthink —<br>
+so you no longer have to guess, stress, or overthink<br>
 just create a moment that truly speaks from the heart.
 </p>
-  
-<!-- SERVICES -->
+
 <section class="reveal">
 <h2>Our Experiences</h2>
-
 <div class="service-btns">
 <button onclick="show('date')">Date</button>
 <button onclick="show('gift')">Gift</button>
 <button onclick="show('surprise')">Surprise</button>
 </div>
-
 <div class="grid" id="content"></div>
 </section>
 
-<!-- QUIZ -->
-<section class="reveal">
+<section class="reveal" id="quizSection">
 <h2>Find Your Perfect Plan</h2>
 
 <div class="quiz">
-
 <input type="text" id="name" placeholder="Your Name">
 <input type="text" id="partner" placeholder="Partner Name">
 
@@ -279,8 +272,9 @@ just create a moment that truly speaks from the heart.
 <option>>300k</option>
 </select>
 
-<button class="main-btn" onclick="generate()">Get Recommendation</button>
-
+<button class="main-btn" onclick="generate()">Get Idea & Chat WhatsApp</button>
+<p style="font-size:12px;color:#777;margin-top:8px;">Free consultation via WhatsApp</p>
+<p id="result" style="margin-top:15px;white-space:pre-line;"></p>
 </div>
 </section>
 
@@ -289,6 +283,10 @@ just create a moment that truly speaks from the heart.
 </footer>
 
 <script>
+function scrollToQuiz(){
+document.getElementById('quizSection').scrollIntoView({behavior:'smooth'});
+}
+
 function show(type){
 let content=document.getElementById("content");
 
@@ -296,32 +294,29 @@ if(type=="date"){
 content.innerHTML=`
 <div class="card"><img src="picnicdate.jpeg"><div class="overlay">Picnic Date</div></div>
 <div class="card"><img src="romanticdinner.jpeg"><div class="overlay">Romantic Dinner</div></div>
-<div class="card"><img src="beachdate.jpeg"><div class="overlay">Beach Date</div></div>
-`;
+<div class="card"><img src="beachdate.jpeg"><div class="overlay">Beach Date</div></div>`;
 }
 
 if(type=="gift"){
 content.innerHTML=`
 <div class="card"><img src="scrapbook.jpg"><div class="overlay">Scrapbook</div></div>
 <div class="card"><img src="watch.jpg"><div class="overlay">Watch</div></div>
-<div class="card"><img src="jewerly.jpg"><div class="overlay">Jewelry</div></div>
-`;
+<div class="card"><img src="jewerly.jpg"><div class="overlay">Jewelry</div></div>`;
 }
 
 if(type=="surprise"){
 content.innerHTML=`
-<div class="card"><img src="scavengerbox.jpg"><div class="overlay">Scavenger Hunt</div></div>
 <div class="card"><img src="stargazing.jpg"><div class="overlay">Stargazing</div></div>
-<div class="card"><img src="recreatefirstdate.jpg"><div class="overlay">Recreate First Date</div></div>
-`;
+<div class="card"><img src="recreatefirstdate.jpg"><div class="overlay">First Date</div></div>
+<div class="card"><img src="scavengerbox.jpg"><div class="overlay">Scavenger Hunt</div></div>`;
 }
 
 content.classList.add("show");
 }
 
 function generate(){
-let name=document.getElementById("name").value;
-let partner=document.getElementById("partner").value;
+let name=document.getElementById("name").value.trim();
+let partner=document.getElementById("partner").value.trim();
 let domisili=document.getElementById("domisili").value;
 let occasion=document.getElementById("occasion").value;
 let hobby=document.getElementById("hobby").value;
@@ -333,38 +328,38 @@ return;
 }
 
 let idea="";
-let pitch="";
 
 if(budget=="<100k"){
 idea="• Simple Date\n• Movie Night";
-pitch="Kami akan bantu ide simple tapi tetap berkesan";
 }
 else if(budget=="100k - 300k"){
-idea="• Picnic\n• Romantic Dinner";
-pitch="Kami akan sesuaikan biar tetap special tanpa over budget";
+idea="• Picnic Date\n• Romantic Dinner";
 }
 else{
 idea="• Staycation\n• Fine Dining";
-pitch="Kami siapkan konsep premium terbaik untuk kamu";
 }
 
-let resultText="Recommended Ideas:\n"+idea;
+let resultText="✨ Recommended Ideas:\n"+idea;
 document.getElementById("result").innerText=resultText;
 
 let message =
 "Halo Couple Goals\n\n" +
-"Saya " + name + " ingin konsultasi.\n" +
-"Pasangan saya: " + partner + "\n\n" +
+"Saya " + name + "\n" +
+"Pasangan: " + partner + "\n\n" +
 "Domisili: " + domisili + "\n" +
 "Occasion: " + occasion + "\n" +
 "Hobby: " + hobby + "\n" +
 "Budget: " + budget + "\n\n" +
-"Ide:\n" + idea + "\n\n" +
-"Mohon dibantu rekomendasi terbaik.\nTerima kasih";
+"Rekomendasi awal:\n" + idea + "\n\n" +
+"Saya ingin dibantu lebih lanjut";
 
-let link="https://api.whatsapp.com/send?phone=6289524070718&text="+encodeURIComponent(message);
+let phone="6289524070718";
 
-window.open(link,"_blank");
+let url = /Android|iPhone/i.test(navigator.userAgent)
+? `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+: `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
+
+window.open(url, "_blank");
 }
 
 window.addEventListener("scroll",()=>{
