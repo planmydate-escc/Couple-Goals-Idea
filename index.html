@@ -54,12 +54,11 @@ margin-bottom:25px;
 
 .hero h1{
 font-family:'Playfair Display', serif;
-font-size:42px;
+font-size:40px;
 color:#8B1E3F;
 max-width:850px;
 margin:auto;
 line-height:1.6;
-letter-spacing:0.5px;
 }
 
 .hero p{
@@ -70,18 +69,38 @@ font-size:17px;
 line-height:1.8;
 }
 
-/* SECTION */
+/* WHY */
+.why{
+max-width:700px;
+margin:auto;
+text-align:center;
+padding:60px 20px;
+}
+
+.sub-text{
+font-size:15px;
+color:#777;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.why ul{
+list-style:none;
+padding:0;
+text-align:left;
+display:inline-block;
+}
+
+.why li{
+margin-bottom:10px;
+}
+
+/* SERVICES */
 section{
-padding:80px 50px;
+padding:70px 20px;
 text-align:center;
 }
 
-h2{
-font-family:'Playfair Display', serif;
-color:#8B1E3F;
-}
-
-/* BUTTON */
 .service-btns{
 display:flex;
 justify-content:center;
@@ -98,11 +117,10 @@ color:white;
 cursor:pointer;
 }
 
-/* CARD */
 .grid{
 display:flex;
 justify-content:center;
-gap:25px;
+gap:20px;
 flex-wrap:wrap;
 margin-top:30px;
 opacity:0;
@@ -112,10 +130,10 @@ transition:0.5s;
 .grid.show{opacity:1;}
 
 .card{
-width:240px;
-border-radius:18px;
+width:230px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 
@@ -130,19 +148,18 @@ object-fit:cover;
 }
 
 .overlay{
-padding:12px;
+padding:10px;
 background:white;
-font-weight:500;
 }
 
 /* QUIZ */
 .quiz{
-max-width:420px;
+max-width:400px;
 margin:auto;
 background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 input,select{
@@ -163,11 +180,24 @@ cursor:pointer;
 width:100%;
 }
 
+/* FOOTER */
 footer{
 background:#8B1E3F;
 color:white;
 text-align:center;
 padding:20px;
+}
+
+/* ANIMASI */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 </style>
 </head>
@@ -183,7 +213,7 @@ padding:20px;
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero reveal">
 <img src="logo.jpeg">
 
 <h1>
@@ -197,11 +227,28 @@ We design intimate and meaningful experiences tailored to your partner,<br>
 so you no longer have to guess, stress, or overthink —<br>
 just create a moment that truly speaks from the heart.
 </p>
+</section>
 
+<!-- WHY -->
+<section class="why reveal">
+<h2>Why Choose Couple Goals?</h2>
+
+<p class="sub-text">
+Every love story deserves a moment that feels unforgettable,
+not just planned but deeply felt, beautifully experienced,
+and remembered long after the day has passed.
+</p>
+
+<ul>
+<li>✔ Personalized ideas</li>
+<li>✔ Save time</li>
+<li>✔ Budget friendly</li>
+<li>✔ Perfect for special moments</li>
+</ul>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section class="reveal">
 <h2>Our Experiences</h2>
 
 <div class="service-btns">
@@ -214,7 +261,7 @@ just create a moment that truly speaks from the heart.
 </section>
 
 <!-- QUIZ -->
-<section>
+<section class="reveal">
 <h2>Find Your Perfect Plan</h2>
 
 <div class="quiz">
@@ -270,16 +317,16 @@ content.innerHTML=`
 
 if(type=="gift"){
 content.innerHTML=`
-<div class="card"><img src="scrapbook.jpg"><div class="overlay">Scrapbook</div></div>
+<div class="card"><img src="scrapbookorsc.jpeg"><div class="overlay">Scrapbook</div></div>
 <div class="card"><img src="watch.jpg"><div class="overlay">Watch</div></div>
-<div class="card"><img src="jewerly.jpg"><div class="overlay">Jewelry</div></div>
+<div class="card"><img src="jewelry.jpg"><div class="overlay">Jewelry</div></div>
 `;
 }
 
 if(type=="surprise"){
 content.innerHTML=`
-<div class="card"><img src="scavengerbox.jpg"><div class="overlay">Scavenger Hunt</div></div>
-<div class="card"><img src="stargazing.jpg"><div class="overlay">Stargazing</div></div>
+<div class="card"><img src="scavengerhunt.jpg"><div class="overlay">Scavenger Hunt</div></div>
+<div class="card"><img src="stargazing.jpeg"><div class="overlay">Stargazing</div></div>
 <div class="card"><img src="recreatefirstdate.jpg"><div class="overlay">Recreate First Date</div></div>
 `;
 }
@@ -288,7 +335,6 @@ content.classList.add("show");
 }
 
 function generate(){
-
 let name=document.getElementById("name").value;
 let partner=document.getElementById("partner").value;
 let domisili=document.getElementById("domisili").value;
@@ -328,6 +374,15 @@ let link="https://api.whatsapp.com/send?phone=6289524070718&text="+encodeURIComp
 
 window.open(link,"_blank");
 }
+
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+let top=el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
+});
 </script>
 
 </body>
