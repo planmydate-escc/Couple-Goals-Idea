@@ -207,37 +207,22 @@ transform:translateY(0);
 <!-- NAVBAR -->
 <nav>
 <div class="logo">
-<img src="logo.jpeg">
+<img src="logo.png">
 <h2>Couple Goals</h2>
 </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero reveal">
-<img src="logo.jpeg">
+<img src="logo.png">
 
 <h1>
-Every love story deserves a moment that feels unforgettable,<br>
-not just planned but deeply felt, beautifully experienced,<br>
-and remembered long after the day has passed.
+Never Run Out of Ideas for Your Special Moments
 </h1>
-
-<p>
-We design intimate and meaningful experiences tailored to your partner,<br>
-so you no longer have to guess, stress, or overthink —<br>
-just create a moment that truly speaks from the heart.
-</p>
-</section>
 
 <!-- WHY -->
 <section class="why reveal">
 <h2>Why Choose Couple Goals?</h2>
-
-<p class="sub-text">
-Every love story deserves a moment that feels unforgettable,
-not just planned but deeply felt, beautifully experienced,
-and remembered long after the day has passed.
-</p>
 
 <ul>
 <li>✔ Personalized ideas</li>
@@ -246,7 +231,13 @@ and remembered long after the day has passed.
 <li>✔ Perfect for special moments</li>
 </ul>
 </section>
-
+  
+<p class="sub-text">
+We design intimate and meaningful experiences tailored to your partner,<br>
+so you no longer have to guess, stress, or overthink —<br>
+just create a moment that truly speaks from the heart.
+</p>
+  
 <!-- SERVICES -->
 <section class="reveal">
 <h2>Our Experiences</h2>
@@ -317,16 +308,16 @@ content.innerHTML=`
 
 if(type=="gift"){
 content.innerHTML=`
-<div class="card"><img src="scrapbookorsc.jpeg"><div class="overlay">Scrapbook</div></div>
+<div class="card"><img src="scrapbook.jpg"><div class="overlay">Scrapbook</div></div>
 <div class="card"><img src="watch.jpg"><div class="overlay">Watch</div></div>
-<div class="card"><img src="jewelry.jpg"><div class="overlay">Jewelry</div></div>
+<div class="card"><img src="jewerly.jpg"><div class="overlay">Jewelry</div></div>
 `;
 }
 
 if(type=="surprise"){
 content.innerHTML=`
-<div class="card"><img src="scavengerhunt.jpg"><div class="overlay">Scavenger Hunt</div></div>
-<div class="card"><img src="stargazing.jpeg"><div class="overlay">Stargazing</div></div>
+<div class="card"><img src="scavengerbox.jpg"><div class="overlay">Scavenger Hunt</div></div>
+<div class="card"><img src="stargazing.jpg"><div class="overlay">Stargazing</div></div>
 <div class="card"><img src="recreatefirstdate.jpg"><div class="overlay">Recreate First Date</div></div>
 `;
 }
@@ -348,16 +339,23 @@ return;
 }
 
 let idea="";
+let pitch="";
 
 if(budget=="<100k"){
-idea="Coffee Date, Movie Date";
+idea="• Simple Date\n• Movie Night";
+pitch="Kami akan bantu ide simple tapi tetap berkesan";
 }
 else if(budget=="100k - 300k"){
-idea="Picnic Date, Romantic Dinner";
+idea="• Picnic\n• Romantic Dinner";
+pitch="Kami akan sesuaikan biar tetap special tanpa over budget";
 }
 else{
-idea="Staycation, Fine Dining";
+idea="• Staycation\n• Fine Dining";
+pitch="Kami siapkan konsep premium terbaik untuk kamu";
 }
+
+let resultText="Recommended Ideas:\n"+idea;
+document.getElementById("result").innerText=resultText;
 
 let message =
 "Halo Couple Goals\n\n" +
