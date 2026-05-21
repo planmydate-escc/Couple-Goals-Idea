@@ -224,6 +224,47 @@ transform:translateY(-5px);
 box-shadow:0 15px 35px rgba(201,24,74,0.35);
 }
 
+  .emergency-section{
+padding:90px 20px;
+background:
+linear-gradient(to bottom,#fff0f3,#ffe5ec);
+text-align:center;
+}
+
+.emergency-box{
+max-width:650px;
+margin:auto;
+padding:50px;
+border-radius:35px;
+background:white;
+box-shadow:0 20px 45px rgba(201,24,74,0.15);
+}
+
+.emergency-box h3{
+font-size:30px;
+line-height:1.7;
+color:#8B1E3F;
+margin-bottom:35px;
+}
+
+.emergency-btn{
+padding:18px 40px;
+border:none;
+border-radius:50px;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+background:linear-gradient(135deg,#ff4d6d,#c9184a);
+color:white;
+transition:0.3s;
+box-shadow:0 10px 30px rgba(201,24,74,0.3);
+}
+
+.emergency-btn:hover{
+transform:translateY(-5px) scale(1.03);
+box-shadow:0 20px 40px rgba(201,24,74,0.4);
+}
+  
 .random-section{
 padding:70px 20px;
 background:linear-gradient(to bottom,#fff,#fff0f3);
@@ -315,6 +356,28 @@ Generate Random Date
 </button>
 
 </div>
+</section>
+
+<section class="reveal emergency-section">
+
+<h2>🚨 Save Our Date Night</h2>
+
+<p>
+Feeling bored or awkward? Let us rescue your special moment 💖
+</p>
+
+<div class="emergency-box">
+
+<h3 id="emergencyResult">
+Press the button to save your date night ✨
+</h3>
+
+<button class="emergency-btn" onclick="saveDateNight()">
+❤️ SAVE OUR DATE NIGHT
+</button>
+
+</div>
+
 </section>
   
 <section class="reveal" id="quizSection">
@@ -478,7 +541,39 @@ ideas[Math.floor(Math.random()*ideas.length)];
 document.getElementById("randomIdea").innerText =
 random;
 }
-  
+  function saveDateNight(){
+
+const emergencyIdeas = [
+
+"💌 Write a short love letter for your partner",
+
+"🎬 Build a cozy movie night with snacks",
+
+"🌙 Go outside together and look at the stars",
+
+"📸 Recreate your favorite memory together",
+
+"🎨 Draw each other without looking",
+
+"☕ Try a random cafe you've never visited",
+
+"💬 Ask each other deep questions for 15 minutes",
+
+"🎮 Play a random game together tonight",
+
+"🍳 Cook dinner together without tutorials",
+
+"🚶 Take a walk and talk about your dreams"
+
+];
+
+const random =
+emergencyIdeas[Math.floor(Math.random()*emergencyIdeas.length)];
+
+document.getElementById("emergencyResult").innerText =
+random;
+}
+
 window.addEventListener("scroll",()=>{
 document.querySelectorAll(".reveal").forEach(el=>{
 let top=el.getBoundingClientRect().top;
