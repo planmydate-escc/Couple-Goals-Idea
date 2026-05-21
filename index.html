@@ -240,6 +240,27 @@ just create a moment that truly speaks from the heart.
 <div class="grid" id="content"></div>
 </section>
 
+<section class="reveal random-section">
+
+<h2>🎲 Random Date Generator</h2>
+
+<p>
+Can't decide what to do? Let fate choose your next date ✨
+</p>
+
+<div class="random-box">
+
+<h3 id="randomIdea">
+Click the button to get an idea 💖
+</h3>
+
+<button class="cta-btn" onclick="generateRandomDate()">
+Generate Random Date
+</button>
+
+</div>
+</section>
+  
 <section class="reveal" id="quizSection">
 <h2>Find Your Perfect Plan</h2>
 
@@ -278,6 +299,28 @@ just create a moment that truly speaks from the heart.
 </div>
 </section>
 
+.random-section{
+padding:70px 20px;
+background:linear-gradient(to bottom,#fff,#fff0f3);
+}
+
+.random-box{
+max-width:500px;
+margin:auto;
+padding:40px;
+border-radius:25px;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(12px);
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+.random-box h3{
+margin-bottom:25px;
+font-size:24px;
+color:#8B1E3F;
+line-height:1.6;
+}
+  
 <footer>
 <p>© 2026 Couple Goals</p>
 </footer>
@@ -362,6 +405,28 @@ let url = /Android|iPhone/i.test(navigator.userAgent)
 window.open(url, "_blank");
 }
 
+function generateRandomDate(){
+
+const ideas = [
+"🌿 Picnic date at sunset",
+"🎬 Movie marathon night",
+"☕ Try a new cafe together",
+"🎨 Paint each other challenge",
+"🍳 Cook dinner together",
+"🌌 Stargazing night",
+"📸 Recreate your first date",
+"🛵 Random city ride together",
+"🎮 Gaming challenge night",
+"💌 Exchange handwritten letters"
+];
+
+const random =
+ideas[Math.floor(Math.random()*ideas.length)];
+
+document.getElementById("randomIdea").innerText =
+random;
+}
+  
 window.addEventListener("scroll",()=>{
 document.querySelectorAll(".reveal").forEach(el=>{
 let top=el.getBoundingClientRect().top;
